@@ -13,6 +13,7 @@ public class Main {
         BufferedReader br = new BufferedReader(reader);
         String inputText = br.readLine();
 
+        // 입력값에 상관없이 무조건 한번만 수행하므로 수행횟수는 1
         System.out.println("1");
         System.out.println("0");
 
