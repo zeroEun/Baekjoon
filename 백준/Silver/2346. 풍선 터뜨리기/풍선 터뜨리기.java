@@ -27,30 +27,25 @@ public class Main {
             deque.add(map);
         }
 
-        Map poll = deque.pollFirst();
-        stringJoiner.add(String.valueOf(poll.get("seq")));
-        int num = (int) poll.get("num");
 
+        int num = 0;
         while (!deque.isEmpty()) {
 
             if (num < 0) {
-                for (int i = 1; i < Math.abs(num); i++){
+                for (int i = 1; i < Math.abs(num) + 1; i++){
                     deque.addFirst(deque.pollLast());
                 }
-                poll = deque.pollLast();
             }
 
             if (num > 0) {
-
                 for (int i = 1; i < Math.abs(num); i++){
                     deque.addLast(deque.pollFirst());
                 }
-                poll = deque.pollFirst();
             }
 
+            Map poll = deque.pollFirst();
             stringJoiner.add(String.valueOf(poll.get("seq")));
             num = (int) poll.get("num");
-
         }
 
         System.out.println(stringJoiner);
